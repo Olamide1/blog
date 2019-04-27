@@ -14,7 +14,8 @@
   <nav class="navbar">
    <%= link_to  "Storyteller", root_path, class: 'navbar-brand' %>
   <% if user_signed_in? %>
-          <%= link_to 'New Post', new_post_path, class: 'navbar-link' %>
+          <%= link_to 'New', new_post_path, class: 'navbar-link' %>
+          <%= link_to 'Bye', destroy_user_session_path, method: :delete %>
 
         <% else %>
           <%= link_to 'Start telling', new_user_session_path, class:'navbar-link' %>

@@ -8,15 +8,26 @@
  <h6 align="center"><%= @post.string %></h6>
 <p align="center">
   <%= @post.body %>
-</p>
-</div>
-
-<div class="pager" align="center">
+  <div class="pager">
 <% if user_signed_in?%>
-
 <%= link_to 'Edit', edit_post_path(@post), class: 'previous' %> |
-<%= link_to 'Delete', @post, method: :delete, data: { confirm: "sure?" }, class: 'next' %> |
+<%= link_to 'Delete', @post, method: :delete, data: { confirm: "Sure?" }, class: 'next' %> |
 <% end %>
 <%= link_to 'Back', posts_path, class:'next' %> 
-
 </div>
+</p>
+
+<div id="fb-root" align="center"></div>
+<div class="fb-comments" align="center" data-href="<%= request.url %>" data-width="470" data-num-posts="2"></div>
+</div>
+
+
+
+
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1&appId=504323752911178";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
