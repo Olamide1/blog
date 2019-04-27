@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -9,17 +10,15 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <body class="container">
   <nav class="navbar">
    <%= link_to  "Storyteller", root_path, class: 'navbar-brand' %>
- p<p class="navbar-text navbar-brand">
   <% if user_signed_in? %>
-<%= link_to 'New Post', new_post_path %>
+          <%= link_to 'New Post', new_post_path, class: 'navbar-link' %>
 
-<% else %>
-<%= link_to 'Start Blogging', new_user_session_path %>
-<% end %>
- </p>
+        <% else %>
+          <%= link_to 'Start Blogging', new_user_session_path, class:'navbar-link' %>
+  <% end %>
   </nav>
   <div class="col-md-10 col-md-offset-1">
         <%= yield %>
