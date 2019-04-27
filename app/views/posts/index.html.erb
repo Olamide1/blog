@@ -1,15 +1,8 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Posts</h1>
-
+<h2>Posts from people</h2>
     <% @posts.each do |post| %>
-      <h1> <%= link_to post.title, post %></h1>
-      <h2><%= post.string %></h2>
+      <h3> <%= link_to post.title, post %></h3>
+      <h4><%= link_to post.string, post %></h4>
     <% end %>
 <br>
-<% if user_signed_in? %>
-<%= link_to 'New Post', new_post_path %>
-
-<% else %>
-<%= link_to 'Start Blogging', new_user_session_path %>
-<% end %>
